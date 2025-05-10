@@ -1,0 +1,25 @@
+[core]
+    editor = code --wait
+    excludesfile = ~/.gitignore
+    pager = less
+
+[credential]
+    helper = osxkeychain
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[rebase]
+    autoStash = true
+
+[user]
+    email = 45369229+Pantastisch@users.noreply.github.com
+    name = Panagiotis Doulgeris
+[safe]
+	directory = /Applications/XAMPP/xamppfiles/etc
