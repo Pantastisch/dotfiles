@@ -130,6 +130,7 @@ alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias knownhosts="code ~/.ssh/known_hosts"
 alias refreshenv="source ~/.zshrc"
 alias vscode-extensions="code ~/.vscode/extensions"
+alias walias="alias | grep "
 
 # For React Native
 export GEM_HOME=$HOME/.gem
