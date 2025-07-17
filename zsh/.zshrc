@@ -72,21 +72,10 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ansible
-  asdf
-  docker
-  docker-compose
-  git
-  npm
-  terraform
+    asdf
+    brew
+    git
 )
-
-# Docker autocompletion
-zstyle ':completion:*:*:docker:*' option-stacking yes
-zstyle ':completion:*:*:docker-*:*' option-stacking yes
-
-# Makefile autocompletion
-zstyle ':completion:*:*:make:*' tag-order 'targets'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,65 +98,30 @@ export EDITOR='nano'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# homebrew / brew
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
 # Aliases (Sorted by alias)
 alias cdd="cd ~/Dev"
+alias cdda="cd ~/Dev/adesso"
+alias cddp="cd ~/Dev/privat"
 alias dotfiles="code ~/Dev/dotfiles"
+alias dotfiles="code ~/Dev/privat/dotfiles"
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias knownhosts="code ~/.ssh/known_hosts"
+alias npma="npm config set registry https://upload.ext-repo.adesso-group.com/artifactory/api/npm/mi-iot-npm/"
+alias npmc="npm config set registry https://artifactory.com2m.de/api/npm/npm/"
+alias npmp="npm config set registry https://registry.npmjs.org/"
+alias ohmyzsh="code ~/.oh-my-zsh"
+alias refreshdns="flushdns"
 alias refreshenv="source ~/.zshrc"
 alias vscode-extensions="code ~/.vscode/extensions"
 alias walias="alias | grep "
+alias zshconfig="code ~/.zshrc"
 
-# For React Native
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
+# General
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 
-# Exports (Sorted by variable name)
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
-export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-export CPPFLAGS="-I/usr/local/opt/sqlite/include"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export LDFLAGS="-L/usr/local/opt/sqlite/lib"
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-export PATH="$ANDROID_HOME/emulator:$PATH"
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-export PATH="$ANDROID_SDK_ROOT/emulator$PATH"
-export PATH="$ANDROID_SDK_ROOT/platform-tools$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/usr/local/opt/openssl@3/bin:$PATH"
-export PATH="/usr/local/opt/php/bin:$PATH"
-export PATH="/usr/local/opt/php/sbin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH=/Applications/MEGAcmd.app/Contents/MacOS:$PATH
+# pipenv
 export PIPENV_VENV_IN_PROJECT=1
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig"
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
-export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
 # thefuck
 eval $(thefuck --alias)
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
