@@ -72,9 +72,11 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    aliases
     asdf
     brew
     git
+    terraform
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,6 +121,9 @@ alias zshconfig="code ~/.zshrc"
 # General
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+
+# azctx
+source <(azctx completion zsh)
 
 # pipenv
 export PIPENV_VENV_IN_PROJECT=1
