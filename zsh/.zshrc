@@ -118,12 +118,12 @@ alias vscode-extensions="code ~/.vscode/extensions"
 alias walias="alias | grep "
 alias zshconfig="code ~/.zshrc"
 
-# General
+# Completions
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-
-# azctx
 source <(azctx completion zsh)
+source <(kubectl completion zsh)
+source <(npm completion zsh)
 
 # pipenv
 export PIPENV_VENV_IN_PROJECT=1
